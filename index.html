@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mijn Mac Hulp</title>
+<style>
+  :root {
+    --bg: #fbf8f3;
+    --card: #ffffff;
+    --text: #1d1d1f;
+    --muted: #55555a;
+    --accent: #0a5cc2;
+    --line: #e2ddd4;
+    --warn-bg: #fff1ef;
+    --warn: #b3261e;
+    --tip-bg: #eef6ff;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 21px/1.55 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  }
+  main { max-width: 920px; margin: 0 auto; padding: 24px 16px 80px; }
+  h1 { font-size: 2.1em; margin: 0.2em 0 0.1em; }
+  h2 {
+    font-size: 1.5em;
+    margin: 1.8em 0 0.6em;
+    padding-bottom: 0.2em;
+    border-bottom: 3px solid var(--line);
+    scroll-margin-top: 110px;
+  }
+  h3 { font-size: 1.15em; margin: 0 0 0.4em; }
+  p { margin: 0.4em 0; }
+  .intro { color: var(--muted); font-size: 1.05em; }
+
+  .help {
+    background: var(--accent);
+    color: #fff;
+    border-radius: 18px;
+    padding: 18px 22px;
+    margin: 18px 0;
+    font-size: 1.1em;
+  }
+  .help strong { font-size: 1.25em; }
+
+  .search-wrap {
+    position: sticky; top: 0; z-index: 5;
+    background: var(--bg);
+    padding: 12px 0;
+  }
+  #zoek {
+    width: 100%;
+    font-size: 1.15em;
+    padding: 16px 20px;
+    border: 3px solid var(--accent);
+    border-radius: 14px;
+    background: #fff;
+    color: var(--text);
+  }
+  #zoek:focus { outline: 4px solid #9cc3f5; }
+
+  nav { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0 0; }
+  nav a {
+    background: #fff;
+    border: 2px solid var(--line);
+    border-radius: 999px;
+    padding: 8px 16px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.9em;
+  }
+  nav a:hover { border-color: var(--accent); }
+
+  .card {
+    background: var(--card);
+    border: 2px solid var(--line);
+    border-radius: 18px;
+    padding: 20px 22px;
+    margin: 14px 0;
+  }
+  .card .icon { font-size: 1.6em; margin-right: 6px; }
+  .card ol, .card ul { margin: 0.4em 0 0; padding-left: 1.4em; }
+  .card li { margin: 0.3em 0; }
+  .tip { background: var(--tip-bg); border-radius: 12px; padding: 10px 14px; margin-top: 10px; }
+  .warn { background: var(--warn-bg); border-color: var(--warn); }
+  .warn h3 { color: var(--warn); }
+
+  kbd {
+    display: inline-block;
+    min-width: 1.6em;
+    padding: 1px 9px;
+    margin: 0 2px;
+    border: 2px solid #b9b4ab;
+    border-bottom-width: 4px;
+    border-radius: 8px;
+    background: #fff;
+    font: inherit;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 18px; overflow: hidden; border: 2px solid var(--line); }
+  th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: #f1ece3; }
+  td:first-child { color: var(--muted); width: 42%; }
+  td:last-child { font-weight: 600; }
+
+  #niets { display: none; }
+  .verborgen { display: none !important; }
+
+  @media (max-width: 600px) {
+    body { font-size: 19px; }
+    td:first-child { width: 45%; }
+  }
+  @media print {
+    .search-wrap, nav { display: none; }
+    .card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+<h1>🍎 Mijn Mac Hulp</h1>
+<p class="intro">Hier staat alles wat je moet weten. Je hoeft niets te onthouden: kijk gewoon hier. De Mac staat in het Engels: de <b>dikgedrukte woorden</b> zie je precies zo op het scherm.</p>
+
+<div class="help">
+  <strong>Kom je er niet uit? Geen paniek. Je kunt niks kapot maken.</strong><br>
+  Bel of app <strong>Yoranneman</strong> 💛
+</div>
+
+<div class="search-wrap">
+  <input id="zoek" type="search" placeholder="🔎 Typ hier wat je zoekt, bijvoorbeeld: documenten" autocomplete="off">
+  <nav>
+    <a href="#woorden">Windows → Mac</a>
+    <a href="#toetsen">Toetsen</a>
+    <a href="#bestanden">Mijn bestanden</a>
+    <a href="#programmas">Programma's</a>
+    <a href="#internet">Internet</a>
+    <a href="#hulp">Hij doet raar</a>
+  </nav>
+</div>
+
+<div class="card warn" id="niets">
+  <h3>Niets gevonden</h3>
+  <p>Probeer een ander woord, of bel Yoranneman.</p>
+</div>
+
+<!-- ============ WOORDENLIJST ============ -->
+<h2 id="woorden">📖 Op Windows heette het… op de Mac heet het…</h2>
+<table>
+  <thead><tr><th>Wat je kent</th><th>Op de Mac heet het</th></tr></thead>
+  <tbody>
+    <tr><td>My Documents / File Explorer</td><td>😊 Finder (het blauw-witte gezichtje, links onderin)</td></tr>
+    <tr><td>Recycle Bin</td><td>🗑️ Trash (de prullenmand, helemaal rechts onderin)</td></tr>
+    <tr><td>Start menu / Taskbar</td><td>Het Dock (de balk met plaatjes onderaan het scherm)</td></tr>
+    <tr><td>Control Panel / Settings</td><td>⚙️ System Settings (het grijze tandwiel)</td></tr>
+    <tr><td>Internet Explorer / Edge / Chrome</td><td>🧭 Safari (het blauwe kompas)</td></tr>
+    <tr><td>Ctrl-toets</td><td><kbd>⌘ command</kbd> (naast de spatiebalk)</td></tr>
+    <tr><td>Right-click (rechtermuisknop)</td><td>Klik met <b>twee vingers tegelijk</b> op het trackpad</td></tr>
+    <tr><td>Rood kruisje rechtsboven</td><td>🔴 Rood bolletje <b>links</b>boven</td></tr>
+    <tr><td>Word</td><td>Pages</td></tr>
+    <tr><td>Excel</td><td>Numbers</td></tr>
+    <tr><td>Task Manager (Ctrl+Alt+Delete)</td><td>Force Quit: <kbd>⌥ option</kbd> + <kbd>⌘ command</kbd> + <kbd>esc</kbd></td></tr>
+    <tr><td>Shut down via Start</td><td> Appeltje linksboven → Shut Down…</td></tr>
+  </tbody>
+</table>
+
+<!-- ============ TOETSEN ============ -->
+<h2 id="toetsen">⌨️ Handige toetsen</h2>
+
+<div class="card">
+  <h3>Wat zijn die rare tekentjes op de toetsen?</h3>
+  <ul>
+    <li><kbd>⌘</kbd> = <b>command</b>. De belangrijkste! Zit direct naast de spatiebalk.</li>
+    <li><kbd>⌥</kbd> = <b>option</b>. Zit naast command.</li>
+    <li><kbd>⇧</kbd> = <b>shift</b>. Voor hoofdletters.</li>
+    <li><kbd>⌫</kbd> = <b>delete</b>. Letter weghalen (rechtsboven).</li>
+  </ul>
+  <p class="tip">💡 "<kbd>⌘</kbd> + <kbd>C</kbd>" betekent: houd ⌘ ingedrukt, druk dan even op C, en laat dan allebei los.</p>
+</div>
+
+<div class="card">
+  <h3><span class="icon">📋</span>Kopiëren en plakken</h3>
+  <ul>
+    <li>Kopiëren (<b>Copy</b>): <kbd>⌘</kbd> + <kbd>C</kbd></li>
+    <li>Plakken (<b>Paste</b>): <kbd>⌘</kbd> + <kbd>V</kbd></li>
+    <li>Knippen/verplaatsen (<b>Cut</b>): <kbd>⌘</kbd> + <kbd>X</kbd></li>
+    <li>Alles selecteren (<b>Select All</b>): <kbd>⌘</kbd> + <kbd>A</kbd></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3><span class="icon">↩️</span>Oeps! Ongedaan maken</h3>
+  <p>Iets per ongeluk weggehaald of verkeerd gedaan? Druk op <kbd>⌘</kbd> + <kbd>Z</kbd> (<b>Undo</b>). Dat kun je een paar keer achter elkaar doen.</p>
+</div>
+
+<div class="card">
+  <h3><span class="icon">💾</span>Opslaan en printen</h3>
+  <ul>
+    <li>Opslaan (<b>Save</b>): <kbd>⌘</kbd> + <kbd>S</kbd></li>
+    <li>Printen (<b>Print</b>): <kbd>⌘</kbd> + <kbd>P</kbd></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3><span class="icon">🔤</span>Speciale tekens typen</h3>
+  <ul>
+    <li>Hoofdletter: houd <kbd>⇧ shift</kbd> ingedrukt en druk op de letter</li>
+    <li>@ (apenstaartje, voor e-mail): <kbd>⇧ shift</kbd> + <kbd>2</kbd></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3><span class="icon">🔍</span>Letters groter of kleiner (op internet)</h3>
+  <ul>
+    <li>Groter: <kbd>⌘</kbd> + <kbd>+</kbd></li>
+    <li>Kleiner: <kbd>⌘</kbd> + <kbd>-</kbd></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3><span class="icon">🔊</span>Geluid en ☀️ helderheid</h3>
+  <ul>
+    <li>Geluid harder/zachter: de toetsen met het <b>luidsprekertje</b>, helemaal bovenaan rechts.</li>
+    <li>Scherm lichter/donkerder: de toetsen met het <b>zonnetje</b>, helemaal bovenaan links.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3><span class="icon">📸</span>Een foto van het scherm maken (schermafbeelding)</h3>
+  <ul>
+    <li>Hele scherm: <kbd>⌘</kbd> + <kbd>⇧ shift</kbd> + <kbd>3</kbd></li>
+    <li>Een stukje: <kbd>⌘</kbd> + <kbd>⇧ shift</kbd> + <kbd>4</kbd>, dan een vierkant trekken met het trackpad</li>
+  </ul>
+  <p class="tip">💡 De foto komt op je bureaublad (<b>Desktop</b>) te staan. Handig om aan Yoranneman te sturen als iets niet lukt!</p>
+</div>
+
+<!-- ============ BESTANDEN ============ -->
+<h2 id="bestanden">📁 Mijn bestanden</h2>
+
+<div class="card" data-extra="verkenner mijn documenten map mappen bestand brief word">
+  <h3><span class="icon">😊</span>Waar staan mijn documenten?</h3>
+  <ol>
+    <li>Klik onderaan op het <b>blauw-witte gezichtje</b> (Finder). Dat is altijd het eerste plaatje links.</li>
+    <li>Kijk in het lijstje aan de linkerkant.</li>
+    <li>Klik op <b>Documents</b>.</li>
+  </ol>
+  <p class="tip">💡 Finder = de kast waar al je spullen in liggen.</p>
+</div>
+
+<div class="card" data-extra="download downloaden gedownload bijlage pdf">
+  <h3><span class="icon">⬇️</span>Waar staat iets dat ik heb gedownload?</h3>
+  <ol>
+    <li>Open <b>Finder</b> (het gezichtje).</li>
+    <li>Klik links op <b>Downloads</b>.</li>
+  </ol>
+  <p class="tip">💡 Ook rechts onderin het Dock, naast de <b>Trash</b>, staat een mapje met je downloads.</p>
+</div>
+
+<div class="card" data-extra="foto fotos plaatjes afbeelding afbeeldingen">
+  <h3><span class="icon">🖼️</span>Waar staan mijn foto's?</h3>
+  <p>Open het programma <b>Photos</b> (het gekleurde bloemetje in het Dock). Of: Finder → <b>Pictures</b>.</p>
+</div>
+
+<div class="card" data-extra="zoeken kwijt vinden spotlight terugvinden">
+  <h3><span class="icon">🔎</span>Ik ben een bestand kwijt</h3>
+  <ol>
+    <li>Druk op <kbd>⌘</kbd> + <kbd>spatiebalk</kbd>.</li>
+    <li>Er verschijnt een zoekbalk midden op het scherm.</li>
+    <li>Typ een woord uit de naam van het bestand.</li>
+    <li>Druk op <kbd>return ↵</kbd> (de grote Enter-toets) om het te openen.</li>
+  </ol>
+</div>
+
+<div class="card" data-extra="weggooien verwijderen prullenbak prullenmand delete">
+  <h3><span class="icon">🗑️</span>Iets weggooien</h3>
+  <p>Sleep het bestand naar de <b>Trash</b> (de prullenmand, helemaal rechts in het Dock).</p>
+  <p class="tip">💡 Het is nog niet echt weg! Zie hieronder hoe je het terughaalt.</p>
+</div>
+
+<div class="card" data-extra="terughalen per ongeluk weggegooid prullenbak prullenmand herstellen">
+  <h3><span class="icon">♻️</span>Per ongeluk iets weggegooid?</h3>
+  <ol>
+    <li>Klik op de <b>Trash</b> (de prullenmand, rechts in het Dock).</li>
+    <li>Zoek je bestand.</li>
+    <li>Sleep het terug naar het bureaublad. Klaar!</li>
+  </ol>
+</div>
+
+<div class="card" data-extra="nieuwe map maken mapje">
+  <h3><span class="icon">📂</span>Een nieuwe map maken</h3>
+  <ol>
+    <li>Open Finder en ga naar de plek waar de map moet komen (bijv. <b>Documents</b>).</li>
+    <li>Klik met <b>twee vingers</b> op een lege plek.</li>
+    <li>Kies <b>New Folder</b> en typ een naam. Druk op <kbd>return ↵</kbd>.</li>
+  </ol>
+</div>
+
+<!-- ============ PROGRAMMA'S ============ -->
+<h2 id="programmas">🪟 Programma's en vensters</h2>
+
+<div class="card" data-extra="dock taakbalk startmenu app openen starten">
+  <h3><span class="icon">▶️</span>Een programma openen</h3>
+  <p><b>Makkelijkst:</b> klik één keer op het plaatje in het Dock (de balk onderaan).</p>
+  <p><b>Staat het er niet?</b> Druk op <kbd>⌘</kbd> + <kbd>spatiebalk</kbd>, typ de naam (bijv. "Pages") en druk op <kbd>return ↵</kbd>.</p>
+</div>
+
+<div class="card" data-extra="afsluiten sluiten stoppen quit kruisje rood bolletje">
+  <h3><span class="icon">🔴</span>Een programma helemaal afsluiten</h3>
+  <p>Druk op <kbd>⌘</kbd> + <kbd>Q</kbd>.</p>
+  <p class="tip">💡 Het rode bolletje linksboven sluit alleen het <b>venster</b>. Het programma blijft dan op de achtergrond open. Dat is niet erg, maar <kbd>⌘</kbd> + <kbd>Q</kbd> is écht dicht.</p>
+</div>
+
+<div class="card" data-extra="bolletjes rood geel groen venster groot klein kwijt verdwenen weg">
+  <h3><span class="icon">🚦</span>De drie bolletjes linksboven</h3>
+  <ul>
+    <li>🔴 <b>Rood</b> = venster dicht</li>
+    <li>🟡 <b>Geel</b> = venster even wegzetten (het zit dan in het Dock)</li>
+    <li>🟢 <b>Groen</b> = venster over het hele scherm. Nog een keer drukken = terug.</li>
+  </ul>
+</div>
+
+<div class="card" data-extra="venster kwijt verdwenen weg programma zoek puntje">
+  <h3><span class="icon">🫥</span>Mijn venster is ineens weg!</h3>
+  <p>Kijk in het Dock. Staat er een <b>klein puntje</b> onder een plaatje? Dan is dat programma nog open. Klik erop en het venster komt terug.</p>
+</div>
+
+<div class="card" data-extra="rechtermuisknop rechtsklik twee vingers trackpad muis">
+  <h3><span class="icon">✌️</span>Rechtermuisknop</h3>
+  <p>Er is geen rechterknop. Klik met <b>twee vingers tegelijk</b> op het trackpad. Dan krijg je hetzelfde menuutje.</p>
+</div>
+
+<div class="card" data-extra="scrollen naar beneden pagina">
+  <h3><span class="icon">↕️</span>Naar beneden scrollen</h3>
+  <p>Leg <b>twee vingers</b> op het trackpad en schuif ze omhoog of omlaag (zonder te klikken).</p>
+</div>
+
+<div class="card" data-extra="systeeminstellingen instellingen configuratiescherm tandwiel">
+  <h3><span class="icon">⚙️</span>Instellingen</h3>
+  <p>Klik linksboven op het  <b>appeltje</b> → <b>System Settings…</b></p>
+  <p class="tip">💡 Twijfel je? Laat dit gerust aan Yoranneman over.</p>
+</div>
+
+<!-- ============ INTERNET ============ -->
+<h2 id="internet">🌐 Internet en mail</h2>
+
+<div class="card" data-extra="internet safari chrome google website browser">
+  <h3><span class="icon">🧭</span>Het internet op</h3>
+  <ol>
+    <li>Klik in het Dock op het <b>blauwe kompas</b> (Safari).</li>
+    <li>Klik in de balk bovenaan.</li>
+    <li>Typ wat je zoekt (bijv. "weerbericht") of een website (bijv. "nu.nl").</li>
+    <li>Druk op <kbd>return ↵</kbd>.</li>
+  </ol>
+</div>
+
+<div class="card" data-extra="wifi internet werkt niet verbinding netwerk">
+  <h3><span class="icon">📶</span>Wifi / internet doet het niet</h3>
+  <ol>
+    <li>Kijk rechtsboven in het scherm naar het <b>wifi-teken</b> (drie boogjes).</li>
+    <li>Klik erop en zet wifi <b>uit</b> en weer <b>aan</b>.</li>
+    <li>Kies je eigen netwerk uit het lijstje.</li>
+  </ol>
+</div>
+
+<div class="card" data-extra="mail email e-mail post bericht versturen">
+  <h3><span class="icon">✉️</span>E-mail</h3>
+  <p>Klik in het Dock op het <b>postzegel-plaatje</b> (Mail). Nieuwe mail schrijven: <kbd>⌘</kbd> + <kbd>N</kbd>.</p>
+</div>
+
+<div class="card" data-extra="tabblad tab nieuw openen">
+  <h3><span class="icon">🗂️</span>Nog een website ernaast openen (tabblad)</h3>
+  <p>Nieuw tabblad: <kbd>⌘</kbd> + <kbd>T</kbd>. Tabblad sluiten: <kbd>⌘</kbd> + <kbd>W</kbd>.</p>
+</div>
+
+<div class="card warn" data-extra="virus nep oplichting hacker pop-up melding bellen microsoft apple geinfecteerd geïnfecteerd">
+  <h3>⚠️ Pas op voor nepmeldingen!</h3>
+  <p>Zie je op internet een scherm als <b>"Your Mac is infected! Call this number!"</b> (of in het Nederlands: "Uw Mac is besmet, bel dit nummer!")?</p>
+  <ul>
+    <li><b>Dat is NEP.</b> Apple en Microsoft bellen of waarschuwen nooit zo.</li>
+    <li><b>Nooit</b> bellen, nooit iets downloaden, nooit je wachtwoord of bankgegevens invullen.</li>
+    <li>Druk op <kbd>⌘</kbd> + <kbd>Q</kbd> om Safari dicht te doen. Bel daarna Yoranneman.</li>
+  </ul>
+</div>
+
+<!-- ============ HULP ============ -->
+<h2 id="hulp">🆘 Hij doet raar / aan en uit</h2>
+
+<div class="card" data-extra="taakbeheer task manager forceer stop hangt vast bevroren reageert niet draaiend wiel regenboog strandbal">
+  <h3><span class="icon">🌈</span>Een programma hangt (draaiend gekleurd balletje)</h3>
+  <ol>
+    <li>Druk tegelijk op <kbd>⌥ option</kbd> + <kbd>⌘</kbd> + <kbd>esc</kbd>.</li>
+    <li>Klik op het programma dat vastzit.</li>
+    <li>Klik op <b>Force Quit</b>.</li>
+  </ol>
+</div>
+
+<div class="card" data-extra="helemaal vast niks werkt opnieuw opstarten herstarten">
+  <h3><span class="icon">🔁</span>Alles zit vast</h3>
+  <ol>
+    <li>Houd de <b>aan/uit-knop</b> (rechtsboven op het toetsenbord) ongeveer <b>10 tellen</b> ingedrukt.</li>
+    <li>Het scherm wordt zwart. Wacht even.</li>
+    <li>Druk de knop één keer kort in om hem weer aan te zetten.</li>
+  </ol>
+</div>
+
+<div class="card" data-extra="zet uit uitzetten afsluiten aanzetten slaapstand klep dicht">
+  <h3><span class="icon">⏻</span>Aanzetten, uitzetten en slapen</h3>
+  <ul>
+    <li><b>Even weg?</b> Doe gewoon de klep dicht. Dat is prima.</li>
+    <li><b>Aanzetten:</b> klep open, of druk kort op de aan/uit-knop rechtsboven.</li>
+    <li><b>Helemaal uit:</b> klik linksboven op het  <b>appeltje</b> → <b>Shut Down…</b></li>
+  </ul>
+</div>
+
+<div class="card" data-extra="batterij opladen stroom lader">
+  <h3><span class="icon">🔋</span>Batterij en opladen</h3>
+  <p>Rechtsboven in het scherm zie je hoe vol de batterij is. Steek de lader in de Mac als hij bijna leeg is.</p>
+</div>
+
+<div class="card" data-extra="wachtwoord vergeten inloggen code">
+  <h3><span class="icon">🔑</span>Wachtwoord vergeten?</h3>
+  <p>Niet zelf gaan proberen. Bel Yoranneman.</p>
+</div>
+
+</main>
+
+<script>
+  const zoek = document.getElementById('zoek');
+  const items = [...document.querySelectorAll('.card:not(#niets), tbody tr')];
+  const niets = document.getElementById('niets');
+  const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+
+  zoek.addEventListener('input', () => {
+    const q = norm(zoek.value.trim());
+    let gevonden = 0;
+    for (const el of items) {
+      const hit = !q || norm(el.textContent + ' ' + (el.dataset.extra || '')).includes(q);
+      el.classList.toggle('verborgen', !hit);
+      if (hit) gevonden++;
+    }
+    niets.style.display = gevonden ? 'none' : 'block';
+    if (q) scrollTo({ top: 0 });
+  });
+</script>
+</body>
+</html>
